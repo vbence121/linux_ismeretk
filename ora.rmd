@@ -1,0 +1,51 @@
+---
+title:  linux ismeretek
+output:
+  prettydoc::html_pretty:
+    theme: architect
+    highlight: github
+  rmarkdown::html_document:
+    theme: darkly
+---
+#ora 4 
+* shell megnyitasa
+* shell bezarasa
+* .bash_profile
+* .bashrc
+* restricted mode : bash --restricted
+* \$PATH  
+
+parancsok:
+
+* date
+	+ \%Y (Y ha 4 hosszu, y ha 2)
+	+ \%m
+	+ \%d
+* \& jel - nem varja meg a parancs bezarasat
+* ; megvarja a veget (olyan mintha egymas utan futatnam de egysorban)
+* ec nevu program csinalasa
+	+ alias ec='echo'
+		- a .bashrc be teszuk hogy meg maradjon
+		- a .bashprofile ba ha mindenkinek
+* ertek adas
+	+ ec='alma'
+	+ \\ escape char - kihadja, bekenhadja a specialis charactereket
+	+ \' \' ha egesz sztringre
+	+ " " olyan mint az \' \' de az \& -et, \\-t ertelmezi ( es meg par mas masikat)
+	+ ` ` backtick fuggetlen parancskent kezeli es az outputot beirja a kulso parancsba (altgr + 7)  
+Keszitsunk egy nevem nevu parancsot ami kiirja a flehasznalo nevet  
+
+>alias nevem='whoami'  
+
+* folytato sor karakter kihagyasa \\-el (a backslash utani karaktert nem specialisan dolgozza fel igy kihadja az uj sor karaktert)  
+* which - megadja az adott file helyet
+ 	+ which date /bin/date  
+* whereis adott nevu fajl
+* ha nincs ' lezarva tudunk tobb soros outputot is kitenni
+* sajat program \$PATH-hoz adasa 
+	+ PATH=\$PATH:\$HOME/bin
+* joker karakterek 
+ 	+  \*  minden file/mappa
+	*  \*jpg adott filenev
+* kimenet atiranyitas fileba \>filename
+	+ a hiba uzenetet kulon kell
