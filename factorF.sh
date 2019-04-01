@@ -1,9 +1,14 @@
-function fact {
-  $1=$1*i
- }
- f=1
- for ((i=0;i<$1;i++)
- do
- fact f
- done
- echo f
+#!/bin/bash
+function fact
+{
+    f=$((f*$i))
+}
+f=1
+i=2
+s=3
+while [ $i -le $s ]
+do
+fact $f
+i=$((i+1))
+done
+echo $f
