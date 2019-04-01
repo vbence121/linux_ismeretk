@@ -6,3 +6,4 @@ function fact {
  do
  fact f
  done
+ echo f
