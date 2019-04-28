@@ -4,12 +4,12 @@
 		1)
 		    from=~/Music
 		    to=~/Music
-	          case $1 in 
+	          case $1 in
 			-G)
 				G="true"
 				;;
 			-h | --help | *)
-				echo "Syntax guide: ./script.sh [from] [to] [-G]"
+				echo "Syntax guide: ./script.sh [from to] [-G]"
 				echo "If one or less location arguments are provided the default ~/Music folder will be used"
 				exit 0
 				;;
@@ -39,18 +39,21 @@
 				exit 0
 			;;
 	esac
-base=$from
+basef=$from
+baset=$to
 for i in "$from"/*.mp3
 do
     echo $from $to
-    from=$base
+    from=$basef
+    to=$baset
     echo $base $from
-    if [ "$G" != "true" ]; then
+    if [ $G == "true" ]; then
+	echo $G
  	genre=`ffprobe "$i" 2>&1 | grep -w "genre" | cut -c 23-`
-	if [[ -d "$to"/"$genre" ]]; then
+	#if [[ ! -d "$to"/"$genre" ]]; then
 	mkdir "$to"/"$genre"
 	to="$to"/"$genre"
-	fi
+	#fi
    fi
 	echo $i
 	Artist=`ffprobe "$i" 2>&1 | grep -w "artist" | cut -c 23-`
